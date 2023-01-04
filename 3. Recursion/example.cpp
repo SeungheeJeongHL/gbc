@@ -6,7 +6,7 @@
 2 4
 3 4
 
-DFS-- 깊이 끝까지 들어가는 것 
+DFS(Depth First Search)-- 깊이 끝까지 들어가는 것 
 */
 
 #include <iostream>
@@ -36,7 +36,7 @@ int main(void){
 
     cin >> N >> M >> V;
 
-    for (int i=0,a,b;i<N;i++){
+    for (int i=0,a,b;i<M;i++){
         cin >> a >> b;
         graph[a].push_back(b); //양방향 연결
         graph[b].push_back(a); 
