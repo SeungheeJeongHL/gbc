@@ -12,19 +12,19 @@ int main(void) {
     int array[10];
 
 
-    queue<int> O; //앞이 열려있음
-    queue< pair<int, int> > OP;
+    queue<int> Q; //앞이 열려있음
+    queue< pair<int, int> > QP;
 
 
 
-    O.push(3);
-    O.push(4);
-    O.push(5);
+    Q.push(3);
+    Q.push(4);
+    Q.push(5);
 
     memset(array,0,sizeof(array)) ; //0으로만 초기화 가능-초기화 훨신 빠름
     //fill();
 
-    OP.push (make_pair(3,4));
+    QP.push (make_pair(3,4));
     //OP.push({3,4});
 
     //OP.push({{1,2}, {3,4}});
@@ -33,10 +33,10 @@ int main(void) {
     //OP.front().second.first -3
     //OP.front().second.second -4
 
-    while(!O.empty()){
-        int k=O.front();//GHOST k=OP.front();
+    while(!Q.empty()){
+        int k=Q.front();//GHOST k=OP.front();
         cout << k << '\n';
-        O.pop();
+        Q.pop();
     }
 
     return 0;
