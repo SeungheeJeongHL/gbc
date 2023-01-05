@@ -37,7 +37,7 @@ int main(void){
     for (int i=0,a,b;i<N;i++){
         cin >> a >> b;
         graph[a].push_back(b); //양방향 연결
-        graph[b].push_back(a); 
+        graph[b].psh_back(a); 
     }
 
     DFS(V);
