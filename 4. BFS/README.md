@@ -6,5 +6,6 @@
   - BFS(Breadth-First Search, 너비 우선 탐색)는 그래프에서 인접한 시작 노드에 인접한 노드부터 탐색하는 알고리즘이다. BFS는 최단거리를 구하거나, 미로 문제를 풀 때, 많이 사용된다. 
 
   ![](BFS.png)
+  ![해설](https://heytech.tistory.com/56)
   
 
