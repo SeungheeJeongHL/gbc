@@ -106,4 +106,61 @@ int main(void){
 -Binary_Search란, 데이터가 정렬되어 있을 때, 원하는 데이터를 제일 효과적으로 찾기 위한 방법이다. binary_search라는 이름에서 나타났듯이, 데이터를 반으로 나눠, 범위를 1/2해나가며 데이터를 찾는다. 
 
 이를 이해하기 위해서 그림을 보면!
-![](binary_search.png)
+![](binary_search.png) 
+M(중간값)과 L(범위 시작 값), H(범위 끝값)을 조절하여 빠르게 원하는 값을 찾는 것을 확인할 수 있다. 
+이를 코드로 구현하면 다음과 같다.
+```cpp
+#include <iostream>
+#include <algorithm>
+
+#define SIZE 10
+
+using namespace std;
+
+//0(N)
+bool basic_search(int arr[], int element){
+    for (int i=0;i<SIZE;i++){
+        if (arr[i]==element){
+            return 1;
+        }
+    }
+    return 0;
+}
+
+//O(log N)
+bool binary_search_func(int arr[], int left, int right, int element){
+    while (left <=right){
+        int mid = (left+right)/2;
+
+        if (arr[mid] > element ){
+            right=mid-1;
+        } else if (arr[mid]==element){
+            return 1;
+        }else {
+            left =mid+1;
+        }
+    }
+    return 0;
+}
+
+int main(void){
+    ios:: sync_with_stdio(false); cin.tie(0);
+
+    int arr[SIZE] = {16,35,52,20,71,82,41,100,94,68};
+
+    sort (arr,arr+SIZE);
+
+    int find_element = 52;
+
+    if (binary_search_func (arr, 0, SIZE-1, find_element) ){
+        cout << "FIND:" << find_element << '\n';
+    } else{
+        cout << "NOT FOUND" << '\n';
+    }
+
+
+    
+    return 0;
+}
+```
+위 코드에서 볼 수 있듯이, 만약에 binary_search_func을 활용하지 않으면 basic_search를 사용해야하는데, 그러면 시간 복잡도의 차이가 O(N)과 O (logN)으로, binary_search가 훨씬 효율적이라는 것을 알 수 있다.
