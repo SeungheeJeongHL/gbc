@@ -35,7 +35,7 @@ int main(void){
 
     cin >> N >> M >> V;
 
-    for (int i=0,a,b;i<N;i++){
+    for (int i=0,a,b;i<M;i++){
         cin >> a >> b;
         graph[a].push_back(b); //양방향 연결
         graph[b].psh_back(a); 
