@@ -37,18 +37,25 @@ int main (void){
 ```
 
 위의 코드를 보며, sort함수에 대해 생각을 해보자면, 
+
 (1)
 sort 함수를 이용하기 위해서는 먼저 헤더 파일에 
 ```
 #include <algorithm>
 ```
 이 있어야 한다.
+
+
 (2)
-위의 함수에서는 array를 이용한 정렬, vector을 이용한 정렬을 나와있어 array와 vector를 사용할 때 sort 함수를 쓸 수 있다는 것을 확인할 수 있다. 
+위의 함수에서는 array를 이용한 정렬, vector을 이용한 정렬을 나와있어 array와 vector를 사용할 때 sort 함수를 쓸 수 있다는 것을 확인할 수 있다.
+
+
 (3)
 배열 array에서 sort 함수를 사용할 때 작성된 sort (arr, arr+10)의 뜻은 배열 array를 arr[0]부터 arr[10]까지 오름차순으로 정렬하라는 의미이다. 이 때, 위와 같이 sort의 parameter이 2개인 경우, default는 오름차순으로 정렬되는데, 이를 내림차순으로 바꾸기 위해서는 sort (arr, arr+10, greater<int>)로 변경해주면 된다. 
+
+
 (4) 
-vector V에서 sort 함수를 사용하는 경우에는 sort (V.begin(), V.end())를 작성하여서 V에서 V.begin() 즉 ,vector의 처음부터 vector가 끝날 때 까지 원소들을 정렬하는 것을 의미한다. vector 정렬의 default값도 오름차수능로, 내림차순으로 바꾸는 방식도 배열에서의 방식과 같다.
+vector V에서 sort 함수를 사용하는 경우에는 sort (V.begin(), V.end())를 작성하여서 V에서 V.begin() 즉 ,vector의 처음부터 vector가 끝날 때 까지 원소들을 정렬하는 것을 의미한다. vector 정렬의 default값도 오름차순으로, 내림차순으로 바꾸는 방식도 배열에서의 방식과 같다.
 
 - sort를 커스텀한 코드
 
