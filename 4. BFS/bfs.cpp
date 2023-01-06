@@ -5,7 +5,7 @@
 using namespace std;
 
 int N,M,V;
-vector <int> graph[10001];
+vector <int> graph[10001];//2차원 배열
 bool visited[10001];
 
 void BFS(int start){
