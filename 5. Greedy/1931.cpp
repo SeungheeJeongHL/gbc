@@ -16,9 +16,14 @@ int main(void){
 
     sort (arr, arr+N);
 
+    int start=arr[0].second;
+    int end=arr[0].first;
 
+    for (int i=0;i<N;i++){
+        if (start > arr[i].second) start=arr[i].second;
+    }
 
-
+    
         
     cout << cnt << '\n';
 
