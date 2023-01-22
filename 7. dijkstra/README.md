@@ -4,7 +4,8 @@
 
 - priority queue란
     - 넣은 순서를 기준으로 데이터가 나가는 구조인 일반적인 queue와 달리, 들어온 데이터의 값을 기준으로 데이터가 나오는 순서가 정해지는 구조이다.
-    - priority queue를 작성할 때는 default 값은 내림차순으로, 큰 값이 앞에 위치한다. 만약, 작은 값을 앞에 두고 싶으면 정의할 때
+    - priority queue를 작성할 때는 default 값은 내림차순으로, 큰 값이 앞에 위치한다. 
+    만약, 작은 값을 앞에 두고 싶으면 정의할 때
     ```
         priority_queue <int, vector<int>, greater<int> > pq_small; // 오름 차순
     ```
@@ -14,9 +15,11 @@
 ## dijikstra 
 
 - dijikstra란
-    - 하나의 시작 정점으로부터 모든 다른 정점 까지의 최단 경로르 찾는 기법이다.
+    - 하나의 시작 정점으로부터 모든 다른 정점 까지의 최단 경로를 찾는 기법이다.
     - 음수 가중치는 사용할 수 없다. 
+    <br>
     ![](dijikstra.png)
+    <br>
 - dijikstra 함수 구현
 ```cpp
 void dijkstra(){
