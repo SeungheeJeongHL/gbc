@@ -17,8 +17,8 @@
 - dijikstra란
     - 하나의 시작 정점으로부터 모든 다른 정점 까지의 최단 경로를 찾는 기법이다.
     - 음수 가중치는 사용할 수 없다. 
+    
     ![](dijikstra.png)
-    <br>
 - dijikstra 함수 구현
 ```cpp
 void dijkstra(){
