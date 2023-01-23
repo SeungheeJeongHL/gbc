@@ -14,12 +14,12 @@
 
 ## dijikstra 
 
-- dijikstra란
+- dijkstra란
     - 하나의 시작 정점으로부터 모든 다른 정점 까지의 최단 경로를 찾는 기법이다.
     - 음수 가중치는 사용할 수 없다. 
     
-    ![](dijikstra.png)
-- dijikstra 함수 구현
+    ![](dijkstra.png)
+- dijkstra 함수 구현
 ```cpp
 #include <iostream>
 #include <vector>
@@ -114,4 +114,4 @@ int main(void){
 
 
 
-[dijikstra 설명 글](https://velog.io/@717lumos/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%8B%A4%EC%9D%B5%EC%8A%A4%ED%8A%B8%EB%9D%BCDijkstra-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
+[dijkstra 설명 글](https://velog.io/@717lumos/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%8B%A4%EC%9D%B5%EC%8A%A4%ED%8A%B8%EB%9D%BCDijkstra-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
