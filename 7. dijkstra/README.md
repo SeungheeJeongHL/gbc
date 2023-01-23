@@ -21,6 +21,30 @@
     ![](dijikstra.png)
 - dijikstra 함수 구현
 ```cpp
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <climits>
+#define INF INT_MAX
+
+/*
+5 6
+1
+start end weight
+5     1   1
+1     2   2
+1     3   3
+2     3   4
+2     4   5
+3     4   6
+*/
+
+using namespace std ;
+
+int V, E, start; 
+int DIST[20010];
+vector <pair <int, int > > graph[20010] ;
+
 void dijkstra(){
     //Distance 무한대 값
     for (int i = 1 ; i<= V ; i++){
@@ -29,7 +53,7 @@ void dijkstra(){
     priority_queue <pair <int, int > > pq;
     //priority_queue <pair <pair <int, int>, vector <int, int > > , greater <pair <int, int > > > ppq ; -> 이걸 사용하면 아래에서 -를 사용하지 않아도 됨. but, 시간 오래 걸림
     pq.push({0, start}); // weight , curr_node
-    DIST[start] = 0 ;
+    DIST[start] = 0 ; //왜냐하면, start에서 시작하기 때문에, start에서 start까지의 DIST는 0.
 
     // pq <0, start>
     while (!pq.empty()) {
@@ -54,6 +78,27 @@ void dijkstra(){
         else cout << DIST[i] << '\n';
     }
     cout << '\n';
+}
+int main(void){
+    ios::sync_with_stdio(false);cin.tie(0);
+    cin >> V >> E ; // V: 정점의 개수, E: 간선의 개수
+    cin >> start ; // start: 시작 정점의 번호
+    for (int i = 0, a,b,c; i < E ; i++){
+        cin >> a >> b >> c ;
+        //start, end, weight
+        graph[a].push_back({b,c});
+
+    }
+    // graph
+    /*
+        1 -> {2,2}(graph[1][0]) -> {3,3}(graph[1][1])
+        2 -> {3,4} -> {4,5}
+        3 -> {4,6} 
+        4 -> 
+        5 -> {4,1}
+    */
+    dijkstra();
+    return 0;
 }
 ```
   - 위 코드에서 
