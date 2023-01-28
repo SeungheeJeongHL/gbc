@@ -4,39 +4,9 @@
 
 #### 1) Sort 
 - sort 함수란, 어떤 배열을 내림차순, 또는 올림차순으로 정렬해주는 함수이다. 
-- 구현 코드 
-```cpp
-#include <iostream>
-#include <algorithm>
-#include <vector>
-#define SIZE 10 
 
-using namespace std;
 
-int main (void){
-    ios:: sync_with_stdio (false) ; cin.tie(0);
-    int arr[SIZE] = {1,3,5,2,7,8,4,10,9,6};
-    vector <int> V ;
-
-    cout << "10개의 입력을 부탁드립니다." << '\n';
-    for (int i=0,k;i<SIZE;i++){
-        cin >> k;
-        V.push_back(k);
-    }
-
-    sort (arr,arr+SIZE);//0부터 SIZE까지 정렬
-    sort(V.begin() , V.end()); // ,greater<int>() 추가 - 내림차순
-
-    for (int i=0;i<SIZE;i++) cout << arr[i] << ' ' ;
-    cout << '\n';
-    for (int i=0;i<V.size();i++) cout << V[i] << ' ';
-
-    cout << '\n';
-    return 0;
-}
-```
-
-위의 코드를 보며, sort함수에 대해 생각을 해보자면, 
+ sort.cpp 코드와 관련해 sort함수에 대해 생각을 정리해보자면, 
 
 (1)
 sort 함수를 이용하기 위해서는 먼저 헤더 파일에 
@@ -47,7 +17,7 @@ sort 함수를 이용하기 위해서는 먼저 헤더 파일에
 
 
 (2)
-위의 함수에서는 array를 이용한 정렬, vector을 이용한 정렬을 나와있어 array와 vector를 사용할 때 sort 함수를 쓸 수 있다는 것을 확인할 수 있다.
+array와 vector를 사용할 때 sort 함수를 쓸 수 있다. 
 
 
 (3)
@@ -57,56 +27,8 @@ sort 함수를 이용하기 위해서는 먼저 헤더 파일에
 (4) 
 vector V에서 sort 함수를 사용하는 경우에는 sort (V.begin(), V.end())를 작성하여서 V에서 V.begin() 즉 ,vector의 처음부터 vector가 끝날 때 까지 원소들을 정렬하는 것을 의미한다. vector 정렬의 default값도 오름차순으로, 내림차순으로 바꾸는 방식도 배열에서의 방식과 같다.
 
-- sort를 커스텀한 코드
-
-```cpp
-#include<iostream>
-#include<algorithm>
-#include<vector>
-
-using namespace std;
-
-typedef struct Person{
-    int height;
-    int weight;
-    int age;
-}PERSON;
-
-bool compare (const PERSON &a, const PERSON &b){
-    if (a.height > b.height) return true;
-    else if (a.height==b.height){
-        if (a.weight > b.weight) return true;
-        else if (a.weight == b.weight){
-            return a.age > b.age;
-        }
-        else {
-            return false;
-        }
-        } else {
-            return false;
-        }
-    }
-
-
-int main(void){
-    ios:: sync_with_stdio(false); cin.tie(0);
-
-    vector <PERSON> V;
-
-    V.push_back({170,61, 17});
-    V.push_back({128,36, 19});
-    V.push_back({182,82, 21});
-    V.push_back({152,35, 18});
-    V.push_back({201,91, 25});
-    V.push_back({182,72, 25});
-
-    sort (V.begin(), V.end(),compare);
-    
-    for (int i=0;i<V.size();i++) cout << V[i].height << ' ' << V[i].weight << ' ' << V[i].age << '\n';
-}
-```
-
-위 코드는 vector 안에 있는 요소가 하나가 아니라 두 개 이상일 경우의 정렬을 나타내는데, 위 경우는 신장, 체중, 나이를 받아들이고 신장 순서대로 정렬하되, 만약 신장이 같을 경우에는 체중 순서로 정렬, 그리고 체중 순서까지 같을 경우에는 나이의 순서로 정렬하는 코드를 구현했다.
+- sort를 커스텀한 코드 (custom_sort.cpp) 
+  - vector 안에 있는 요소가 하나가 아니라 두 개 이상일 경우의 정렬을 나타내는데, 위 경우는 신장, 체중, 나이를 받아들이고 신장 순서대로 정렬하되, 만약 신장이 같을 경우에는 체중 순서로 정렬, 그리고 체중 순서까지 같을 경우에는 나이의 순서로 정렬하는 코드를 구현했다.
 
 #### 2) Binary_Search
 
@@ -115,26 +37,10 @@ int main(void){
 이를 이해하기 위해서 그림을 보면!
 ![](binary_search.png) 
 M(중간값)과 L(범위 시작 값), H(범위 끝값)을 조절하여 빠르게 원하는 값을 찾는 것을 확인할 수 있다. 
-이를 코드로 구현하면 다음과 같다.
+
+binary_search.cpp 코드에서 볼 수 있듯이, 만약에 binary_search_func , 즉, 
 ```cpp
-#include <iostream>
-#include <algorithm>
-
-#define SIZE 10
-
-using namespace std;
-
-//0(N)
-bool basic_search(int arr[], int element){
-    for (int i=0;i<SIZE;i++){
-        if (arr[i]==element){
-            return 1;
-        }
-    }
-    return 0;
-}
-
-//O(log N)
+// (O(log N))
 bool binary_search_func(int arr[], int left, int right, int element){
     while (left <=right){
         int mid = (left+right)/2;
@@ -150,24 +56,18 @@ bool binary_search_func(int arr[], int left, int right, int element){
     return 0;
 }
 
-int main(void){
-    ios:: sync_with_stdio(false); cin.tie(0);
 
-    int arr[SIZE] = {16,35,52,20,71,82,41,100,94,68};
-
-    sort (arr,arr+SIZE);
-
-    int find_element = 52;
-
-    if (binary_search_func (arr, 0, SIZE-1, find_element) ){
-        cout << "FIND:" << find_element << '\n';
-    } else{
-        cout << "NOT FOUND" << '\n';
+```
+을 활용하지 않으면 basic_search
+```cpp
+//O(N)
+bool basic_search(int arr[], int element){
+    for (int i=0;i<SIZE;i++){
+        if (arr[i]==element){
+            return 1;
+        }
     }
-
-
-    
     return 0;
 }
 ```
-위 코드에서 볼 수 있듯이, 만약에 binary_search_func을 활용하지 않으면 basic_search를 사용해야하는데, 그러면 시간 복잡도의 차이가 O(N)과 O (logN)으로, binary_search가 훨씬 효율적이라는 것을 알 수 있다.
+를 사용해야하는데, 그러면 시간 복잡도의 차이가 O(N)과 O (logN)으로, binary_search가 훨씬 효율적이라는 것을 알 수 있다.
