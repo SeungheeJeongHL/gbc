@@ -12,7 +12,7 @@
     으로 하면 된다.
     - queue에서는 값을 볼 때 q.front()를 사용했지만. priority queue에서는 pq.top()을 사용한다.  
 
-## dijikstra 
+## dijkstra 
 
 - dijkstra란
     - 하나의 시작 정점으로부터 모든 다른 정점 까지의 최단 경로를 찾는 기법이다.
