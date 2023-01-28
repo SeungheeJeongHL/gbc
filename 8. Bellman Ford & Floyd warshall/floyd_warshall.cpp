@@ -39,6 +39,14 @@ int main(void) {
     }
 
 /* Before
+for (int i = 0 ; i< n ; i++){
+    for (int j = 0 ; j < n ; j ++ ){
+        if (DIST[i][j] == INF ) cout << "INF";
+        else cout << DIST[i][j] << ' ';
+    }
+    cout << '\n';
+}
+
 row\col 0 1 2 3 4
 0		0 2 3 1 10 
 1		INF 0 INF 2 INF 
@@ -46,7 +54,9 @@ row\col 0 1 2 3 4
 3		INF INF INF 0 3 
 4		7 4 INF INF 0 
 */
+
     floyd_warshall() ; 
+    
 /* After 
 	0 2 3 1 4 
 	12 0 15 2 5 
