@@ -8,7 +8,6 @@
 
 ## floyd warshall
  - floyd warshall이란 
-   - 모든 vertex를 시작점으로 
    - 중간다리가 되는 노드를 거치는 경로와 바로 가는 경로를 비교하여 최단 경로를 알아내는 것이 핵심이다. (floyd_warshall.cpp 코드에서 k가 중간다리 )
  - dijkstra와 floyd warshall 의 time complexity 비교
    - Dijkstra =>  O ( V * ( ( V + E ) log V ) ) = O ( V* (2V + E ))
